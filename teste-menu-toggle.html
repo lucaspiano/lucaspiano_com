@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+ 
+
+.accordion {
+
+    background-color: #eee;
+
+    color: #444;
+
+    cursor: pointer;
+
+    padding: 18px;
+
+    width: 100%;
+
+    border: none;
+
+    text-align: left;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.4s;
+
+}
+
+ 
+
+.active, .accordion:hover {
+
+    background-color: #ccc;
+
+}
+
+ 
+
+.panel {
+
+    /*padding: 0 18px;*/
+
+    display: none;
+
+    background-color: white;
+
+    overflow: hidden;
+
+}
+
+ 
+
+li.panel ul li p {
+
+background-color: #ccc;
+
+padding: 0px;
+
+ 
+
+}
+
+ 
+
+li.panel ul li p a{
+
+background-color: #eff;
+
+padding: 18px;
+
+display: block;
+
+ 
+
+}
+
+ 
+
+li.panel ul li{
+
+list-style-type: none;
+
+}
+
+ 
+
+</style>
+
+</head>
+
+<body>
+
+ 
+
+<ul>
+
+<button class="accordion">Section 1</button>
+
+<li class="panel">
+
+                <ul>
+
+                <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+                </ul>
+
+</li>
+
+ 
+
+<button class="accordion">Section 2</button>
+
+<li class="panel">
+
+                <ul>
+
+                <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+                </ul>
+
+</li>
+
+ 
+
+<button class="accordion">Section 3</button>
+
+<li class="panel">
+
+                <ul>
+
+                <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+                </ul>
+
+</li>
+
+ 
+
+<button class="accordion">Section 4</button>
+
+<li class="panel">
+
+                <ul>
+
+                <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+        <li><p><a href="url">link text</a></p></li>
+
+                </ul>
+
+</li>
+
+</ul>
+
+ 
+
+<script>
+
+var acc = document.getElementsByClassName("accordion");
+
+var i;
+
+ 
+
+for (i = 0; i < acc.length; i++) {
+
+    acc[i].addEventListener("click", function() {
+
+        this.classList.toggle("active");
+
+        var panel = this.nextElementSibling;
+
+        if (panel.style.display === "block") {
+
+            panel.style.display = "none";
+
+        } else {
+
+            panel.style.display = "block";
+
+        }
+
+    });
+
+}
+
+</script>
+
+ 
+
+</body>
+
+</html>
