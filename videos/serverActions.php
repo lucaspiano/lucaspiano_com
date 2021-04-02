@@ -14,14 +14,14 @@
     // Your code here to handle a successful verification
   }
 
-require_once("../classes/connection.php");
+require_once("../classes/MySQLConnection.php");
 
 echo "<body bgcolor='#000'>";
 
 //enviando o email
 
 $to = "lucaspiano@gmail.com";
-$subject = "LucasPiano.com | Comentário postado no Site";
+$subject = "LucasPiano.com | Comentï¿½rio postado no Site";
 $remetente = "lucaspiano@lucaspiano.com";
 $html = "
 
@@ -32,7 +32,7 @@ $html = "
 <body>
 <table width='500' style='border:1px solid #666666;' cellspacing='0' cellpadding='0'>
   <tr style='font-weight:bold; font-family: Tahoma, Verdana, Arial, sans-serif; font-size:12px; color:#FFF; background-color:#00569D;'>
-    <td style='padding:10px;'>Comentário postado no Site | ".date("d-m-Y")."</td>
+    <td style='padding:10px;'>Comentï¿½rio postado no Site | ".date("d-m-Y")."</td>
   </tr>
   <tr>
     <td align='center' style='padding:10px;'><table width='480' border='0' cellspacing='0' cellpadding='0'>
@@ -68,7 +68,7 @@ if (mail($to, $subject, $html, $headers)) {
  {
 	 // remove palavras que contenham sintaxe sql
 	 $sql = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$sql);
-	 $sql = trim($sql);//limpa espaços vazio
+	 $sql = trim($sql);//limpa espaï¿½os vazio
 	 $sql = strip_tags($sql);//tira tags html e php
 	 $sql = addslashes($sql);//Adiciona barras invertidas a uma string
  	 $sql = mysql_real_escape_string($sql);
@@ -76,7 +76,7 @@ if (mail($to, $subject, $html, $headers)) {
  }
 
 
-//Recupera o Modulo e a açao do Form (inclusao ou alteracao) e define a ação do SQL
+//Recupera o Modulo e a aï¿½ao do Form (inclusao ou alteracao) e define a aï¿½ï¿½o do SQL
 
 $codigoVideo = $_POST['codigoVideo'];
 $nome = anti_injection($_POST['txtNome']);
@@ -86,13 +86,13 @@ $comentario = anti_injection($_POST['txtMensagem']);
 $data = date("Y-m-d");//implode(preg_match("~\/~", $txtData) == 0 ? "/" : "-", array_reverse(explode(preg_match("~\/~", $txtData) == 0 ? "-" : "/", $txtData)));
 
 if (empty($nome) or empty($comentario) or empty($email)) {
-	echo "<script>alert('Nome, email e comentário devem ser preenchidos!');</script>";
+	echo "<script>alert('Nome, email e comentï¿½rio devem ser preenchidos!');</script>";
 	echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=video.php?codigo=".$codigoVideo."'>";
 	exit();
 }
 
 if (empty($codigoVideo)) {
-	echo "<script>alert('Ocorreu um erro ao postar seu comentário. Por Favor, tente mais tarde.');</script>";
+	echo "<script>alert('Ocorreu um erro ao postar seu comentï¿½rio. Por Favor, tente mais tarde.');</script>";
 	echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=http://www.lucaspiano.com/videos/'>";
 	exit();
 }
@@ -100,7 +100,7 @@ if (empty($codigoVideo)) {
 
 
 
-// Define a Query para inclusão no bd
+// Define a Query para inclusï¿½o no bd
 
 $sql = "INSERT INTO Comentario  (Codigo,
 								 CodigoVideo,

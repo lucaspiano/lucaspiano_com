@@ -1,5 +1,5 @@
 <?
-require_once("classes/connection.php");
+require_once("classes/MySQLConnection.php");
 require_once("YoutubeHelper.php");
 
 $useragent=$_SERVER['HTTP_USER_AGENT'];

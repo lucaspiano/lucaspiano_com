@@ -1,0 +1,506 @@
+<?
+require_once("../classes/connection.php");
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+ <head>
+ 	<title>LucasPiano.com | Aulas on-line, Piano cl&aacute;ssico e partituras</title>
+ 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="description" content="Encontre aqui tudo sobre piano cl&aacute;ssico. Video-aulas, Partituras, materias e muito mais!" />
+ 	<meta name="keywords" content="piano, online learning, ensino a distancia, piano classico, classical piano, materias, videos, aprendizado, video-aula, mozart, chopin, aprenda piano, aprender piano, tutorial piano" />
+	<meta name="author" content="TY Interactive" />
+
+
+	<link rel="shortcut icon" type="image/ico" href="http://www.lucaspiano.com/images/favicon.ico" />
+
+	<!-- Estilos -->
+	<link rel="stylesheet" href="../css/common.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="../css/contact.css" type="text/css" media="all" />
+
+	<!-- Scripts -->
+	<?require("../scripts.php"); ?>
+	<script src="http://www.lucaspiano.com/scripts/rsv.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function mascara(o,f){
+		    v_obj=o
+		    v_fun=f
+		    setTimeout("execmascara()",1)
+		}
+
+		function execmascara(){
+		    v_obj.value=v_fun(v_obj.value)
+		}
+
+		function soNumeros(v){
+		    return v.replace(/\D/g,"")
+		}
+
+		function telefone(v){
+		    v=v.replace(/\D/g,"")
+		    v=v.replace(/^(\d\d)(\d)/g,"($1) $2")
+		    v=v.replace(/(\d{4})(\d)/,"$1-$2")
+		    return v
+		}
+
+				rsv.onCompleteHandler = myOnComplete;
+		          function myOnComplete()
+		          {
+		            return true;
+		          }
+
+		        rsv.displayType     = "display-html";
+		        rsv.errorFieldClass = "errorField";
+		        rsv.errorTextIntro  = "Os seguintes campos s&atilde;o obrigat&oacute;rios:";
+
+		        var rules = [];
+		        rules.push("required,txtNome,Nome");
+		        rules.push("required,txtEmail,E-mail para contato");
+		        rules.push("required,txtMensagem,Mensagem");
+		        rules.push("valid_email,txtEmail,Digite um e-mail v&aacute;lido.");
+                        
+                        var RecaptchaOptions = {
+                        theme : 'blackglass'
+ };
+</script>
+
+ </head>
+
+<body>
+
+<!--HEADER-->
+<? require("../header.php"); ?>
+
+<div id="bannerInternals">
+	<div id="bannerContent">
+		<img src="../images/h_contact.jpg" />
+	</div>
+</div>
+
+<!--CONTENT-->
+<div id="contentPage">
+	<div id="content">
+		<div id="contact">
+
+		<div id="credits">
+			<h1 class="<?=$GLOBALS['LANG']?>">Creditos</h1>
+
+			<span><?=TranslateItem("Desenvolvimento","Development","Desarollo")?></span>
+			<p>guFigueiredo | Design Studios</p>
+
+			<span><?=TranslateItem("Fotografia","Photography","Fotograf&iacute;a")?></span>
+                        <p>H2D Est&uacute;dio</p>
+
+			<span><?=TranslateItem("Filmagem","Filming","Video")?></span>
+                        <p>Nacif Abr&atilde;o</p>
+
+			<span><?=TranslateItem("Mixagem/Edi&ccedil;&atilde;o","Mixing/Editing","Edición/Mezcla")?></span>
+			<p>Lucas Piano</p>
+
+
+		</div>
+
+		<div id="contactForm">
+			<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Fale com o Lucas","Stay in touch","Fale con Lucas")?></h1>
+
+			<?
+			$sucess = $_GET['success'];
+			$error = $_GET['error'];
+			if ($success == 1) {
+				?>
+					<div class="success">
+						<span><?=TranslateItem("Mensagem enviada com sucesso!","Message sent successfully","Mensaje enviada con &eacute;xito")?></span>
+					</div>
+				<?
+			}
+			if ($error == 1) {
+				?>
+					<div class="success">
+						<span class="error"><?=TranslateItem("Ocorreu um erro ao enviar sua mensagem. Por favor, tente mais tarde!","There was an error sending your message. Please try again later!","Ha ocurrido un error enviando su mensaje. Por favor, inténtelo de nuevo más tarde!")?></span>
+					</div>
+				<?
+			}
+			?>
+
+			<p><?=TranslateItem("Preencha o formul&aacute;rio abaixo que em breve entraremos em contato.","Fill out the form below and we will contact you soon.","Rellene el siguiente formulario y nos pondremos en contacto con usted en breve.")?></p>
+
+			<div id="rsvErrors"></div>
+
+
+			<div class="box">
+				<fieldset>
+					<form action="serverActions.php" name="frmContato" method="post" onsubmit="return rsv.validate(this, rules)">
+                                        
+					<label><?=TranslateItem("Nome","Name","Nome")?>:</label>
+					<input type="text" size="30" name="txtNome" id="txtNome"><br/>
+
+					<label>E-mail:</label>
+					<input type="text" size="30" name="txtEmail" id="txtEmail"><br/>
+
+					<label><?=TranslateItem("Pa&iacute;s","Country","Pa&iacute;s")?>:</label>
+					<select name="country" id="country">
+						<option value=""   ><?=TranslateItem("-- Selecione --","-- Select --","-- Seleccione --")?></option>
+						<option value="af"  >Afeganistão</option>
+
+						<option value="ax"   >Ilhas Aland</option>
+						<option value="al"   >Albânia</option>
+
+						<option value="dz"   >Argélia</option>
+						<option value="as"   >Samoa americana</option>
+						<option value="ad"   >Andorra</option>
+						<option value="ao"   >Angola</option>
+
+						<option value="ai"   >Anguilla</option>
+						<option value="aq"   >Antártica</option>
+
+						<option value="ag"   >Antígua e Barbuda</option>
+						<option value="ar"   >Argentina</option>
+						<option value="am"   >Armênia</option>
+						<option value="aw"   >Aruba</option>
+
+						<option value="au"   >Austrália</option>
+						<option value="at"   >Áustria</option>
+
+						<option value="az"   >Azerbaijão</option>
+						<option value="bs"   >Bahamas</option>
+						<option value="bh"   >Bahrein</option>
+						<option value="bd"   >Bangladesh</option>
+
+						<option value="bb"   >Barbados</option>
+						<option value="by"   >Belarus</option>
+
+						<option value="be"   >Bélgica</option>
+						<option value="bz"   >Belize</option>
+						<option value="bj"   >Benin</option>
+						<option value="bm"   >Bermudas</option>
+
+						<option value="bt"   >Butão</option>
+						<option value="bo"   >Bolívia</option>
+
+						<option value="ba"   >Bósnia-Herzegóvina</option>
+						<option value="bw"   >Botsuana</option>
+						<option value="bv"   >Ilha Bouvet</option>
+						<option value="br"   >Brasil</option>
+
+						<option value="io"   >Território britânico no Oceano Índico</option>
+						<option value="vg"   >Ilhas virgens britânicas</option>
+
+						<option value="bn"   >Brunei</option>
+						<option value="bg"   >Bulgária</option>
+						<option value="bf"   >Burkina Fasso</option>
+						<option value="bi"   >Burundi</option>
+
+						<option value="kh"   >Camboja</option>
+						<option value="cm"   >Camarões</option>
+
+						<option value="ca"   >Canadá</option>
+						<option value="cv"   >Cabo Verde</option>
+						<option value="ky"   >Ilhas Cayman</option>
+						<option value="cf"   >República Centro-africana</option>
+
+						<option value="td"   >Chade</option>
+						<option value="cl"   >Chile</option>
+
+						<option value="cn"   >China</option>
+						<option value="cx"   >Ilha Christmas</option>
+						<option value="cc"   >Ilhas Coco (ou Keeling)</option>
+						<option value="co"   >Colômbia</option>
+
+						<option value="km"   >Ilhas Comores</option>
+						<option value="cg"   >Congo</option>
+
+						<option value="ck"   >Ilhas Cook</option>
+						<option value="cr"   >Costa Rica</option>
+						<option value="hr"   >Croácia</option>
+						<option value="cu"   >Cuba</option>
+
+						<option value="cy"   >Chipre</option>
+						<option value="cz"   >República Tcheca</option>
+
+						<option value="cd"   >República Democrática do Congo</option>
+						<option value="dk"   >Dinamarca</option>
+						<option value="xx"   >Território em disputa</option>
+						<option value="dj"   >Djibuti</option>
+
+						<option value="dm"   >Dominica</option>
+						<option value="do"   >República Dominicana</option>
+
+						<option value="tl"   >Timor Leste</option>
+						<option value="ec"   >Equador</option>
+						<option value="eg"   >Egito</option>
+						<option value="sv"   >El Salvador</option>
+
+						<option value="gq"   >Guiné Equatorial</option>
+						<option value="er"   >Eritréia</option>
+
+						<option value="ee"   >Estônia</option>
+						<option value="et"   >Etiópia</option>
+						<option value="fk"   >Ilhas Falkland</option>
+						<option value="fo"   >Ilhas Faeroes</option>
+
+						<option value="fm"   >Estados Federados da Micronésia</option>
+						<option value="fj"   >Fiji</option>
+
+						<option value="fi"   >Finlândia</option>
+						<option value="fr"   >França</option>
+						<option value="gf"   >Guiana Francesa</option>
+						<option value="pf"   >Polinésia Francesa</option>
+
+						<option value="tf"   >Territórios Franceses do Sul</option>
+						<option value="ga"   >Gabão</option>
+
+						<option value="gm"   >Gâmbia</option>
+						<option value="ge"   >Geórgia</option>
+						<option value="de"   >Alemanha</option>
+						<option value="gh"   >Gana</option>
+
+						<option value="gi"   >Gibraltar</option>
+						<option value="gr"   >Grécia</option>
+
+						<option value="gl"   >Groenlândia</option>
+						<option value="gd"   >Granada</option>
+						<option value="gp"   >Guadalupe</option>
+						<option value="gu"   >Guam</option>
+
+						<option value="gt"   >Guatemala</option>
+						<option value="gn"   >Guiné</option>
+
+						<option value="gw"   >Guiné-Bissau</option>
+						<option value="gy"   >Guiana</option>
+						<option value="ht"   >Haiti</option>
+						<option value="hm"   >Ilha Heard and Ilhas Mcdonald</option>
+
+						<option value="hn"   >Honduras</option>
+						<option value="hk"   >Hong Kong</option>
+
+						<option value="hu"   >Hungria</option>
+						<option value="is"   >Islândia</option>
+						<option value="in"   >Índia</option>
+						<option value="id"   >Indonésia</option>
+
+						<option value="ir"   >Irã</option>
+						<option value="iq"   >Iraque</option>
+
+						<option value="xe"   >Zona Neutra Saudita-Iraquiana</option>
+						<option value="ie"   >Irlanda</option>
+						<option value="il"   >Israel</option>
+						<option value="it"   >Itália</option>
+
+						<option value="ci"   >Costa do Marfim</option>
+						<option value="jm"   >Jamaica</option>
+
+						<option value="jp"   >Japão</option>
+						<option value="jo"   >Jordânia</option>
+						<option value="kz"   >Cazaquistão</option>
+						<option value="ke"   >Quênia</option>
+
+						<option value="ki"   >Kiribati</option>
+						<option value="kw"   >Kuait</option>
+
+						<option value="kg"   >Quirguistão</option>
+						<option value="la"   >Laos</option>
+						<option value="lv"   >Letônia</option>
+						<option value="lb"   >Líbano</option>
+
+						<option value="ls"   >Lesoto</option>
+						<option value="lr"   >Libéria</option>
+
+						<option value="ly"   >Líbia</option>
+						<option value="li"   >Liechtenstein</option>
+						<option value="lt"   >Lituânia</option>
+						<option value="lu"   >Luxemburgo</option>
+
+						<option value="mo"   >Macau</option>
+						<option value="mk"   >Macedônia</option>
+
+						<option value="mg"   >Madagascar</option>
+						<option value="mw"   >Malaui</option>
+						<option value="my"   >Malásia</option>
+						<option value="mv"   >Maldivas</option>
+
+						<option value="ml"   >Mali</option>
+						<option value="mt"   >Malta</option>
+
+						<option value="mh"   >Ilhas Marshall</option>
+						<option value="mq"   >Martinica</option>
+						<option value="mr"   >Mauritânia</option>
+						<option value="mu"   >Maurício</option>
+
+						<option value="yt"   >Mayotte</option>
+						<option value="mx"   >México</option>
+
+						<option value="md"   >Moldova</option>
+						<option value="mc"   >Mônaco</option>
+						<option value="mn"   >Mongólia</option>
+						<option value="ms"   >Montserrat</option>
+
+						<option value="ma"   >Marrocos</option>
+						<option value="mz"   >Moçambique</option>
+
+						<option value="mm"   >Myanma</option>
+						<option value="na"   >Namíbia</option>
+						<option value="nr"   >Nauru</option>
+						<option value="np"   >Nepal</option>
+
+						<option value="nl"   >Holanda</option>
+						<option value="an"   >Antilhas holandesas</option>
+
+						<option value="nc"   >Nova Caledônia</option>
+						<option value="nz"   >Nova Zelândia</option>
+						<option value="ni"   >Nicarágua</option>
+						<option value="ne"   >Níger</option>
+
+						<option value="ng"   >Nigéria</option>
+						<option value="nu"   >Niue</option>
+
+						<option value="nf"   >Ilha Norfolk</option>
+						<option value="kp"   >Coréia do Norte</option>
+						<option value="mp"   >Ilhas Mariana do Norte</option>
+						<option value="no"   >Noruega</option>
+
+						<option value="om"   >Omã</option>
+						<option value="pk"   >Paquistão</option>
+
+						<option value="pw"   >Palau</option>
+						<option value="ps"   >Territórios Ocupados da Palestina</option>
+						<option value="pa"   >Panamá</option>
+						<option value="pg"   >Papua-Nova Guiné</option>
+
+						<option value="py"   >Paraguai</option>
+						<option value="pe"   >Peru</option>
+
+						<option value="ph"   >Filipinas</option>
+						<option value="pn"   >Ilhas Pitcairn</option>
+						<option value="pl"   >Polônia</option>
+						<option value="pt"   >Portugal</option>
+
+						<option value="pr"   >Porto Rico</option>
+						<option value="qa"   >Quatar</option>
+
+						<option value="re"   >Ilha Reunião</option>
+						<option value="ro"   >Romênia</option>
+						<option value="ru"   >Rússia</option>
+						<option value="rw"   >Ruanda</option>
+
+						<option value="sh"   >Santa Helena e Dependências</option>
+						<option value="kn"   >São Cristóvão e Névis</option>
+
+						<option value="lc"   >Santa Lúcia</option>
+						<option value="pm"   >São Pierre e Miquelon</option>
+						<option value="vc"   >São Vincente e Granadinas</option>
+						<option value="ws"   >Samoa Ocidental</option>
+
+						<option value="sm"   >San Marino</option>
+						<option value="st"   >São Tomé e Príncipe</option>
+
+						<option value="sa"   >Arábia Saudita</option>
+						<option value="sn"   >Senegal</option>
+						<option value="sc"   >Ilhas Seychelles</option>
+
+						<option value="sl"   >Serra Leoa</option>
+						<option value="sg"   >Cingapura</option>
+						<option value="sk"   >Eslováquia</option>
+
+						<option value="si"   >Eslovênia</option>
+						<option value="sb"   >Ilhas Salomão</option>
+						<option value="so"   >Somália</option>
+
+						<option value="za"   >África do Sul</option>
+						<option value="gs"   >Ilhas Geórgia e Sandwich do Sul</option>
+						<option value="kr"   >Coréia do Sul</option>
+
+						<option value="es"   >Espanha</option>
+						<option value="pi"   >Ilhas Spratly</option>
+						<option value="lk"   >Sri Lanka</option>
+
+						<option value="sd"   >Sudão</option>
+						<option value="sr"   >Suriname</option>
+						<option value="sj"   >Ilhas Svalbard e Jan Mayen</option>
+
+						<option value="sz"   >Suazilândia</option>
+						<option value="se"   >Suécia</option>
+						<option value="ch"   >Suíça</option>
+
+						<option value="sy"   >Síria</option>
+						<option value="tw"   >Taiwan</option>
+						<option value="tj"   >Tadjiquistão</option>
+
+						<option value="tz"   >Tanzânia</option>
+						<option value="th"   >Tailândia</option>
+						<option value="tg"   >Togo</option>
+
+						<option value="tk"   >Ilhas Tokelau</option>
+						<option value="to"   >Tonga</option>
+						<option value="tt"   >Trinidad e Tobago</option>
+
+						<option value="tn"   >Tunísia</option>
+						<option value="tr"   >Turquia</option>
+						<option value="tm"   >Turcomenistão</option>
+
+						<option value="tc"   >Ilhas Turks e Caicos</option>
+						<option value="tv"   >Tuvalu</option>
+						<option value="ug"   >Uganda</option>
+
+						<option value="ua"   >Ucrânia</option>
+						<option value="ae"   >Emirados Árabes Unidos</option>
+						<option value="uk"   >Reino Unido</option>
+
+						<option value="xd"   >Zona neutra das Nações Unidas</option>
+						<option value="us"   >Estados Unidos</option>
+						<option value="um"   >Ilhas Menores Distantes dos Estados Unidos</option>
+
+						<option value="uy"   >Uruguai</option>
+						<option value="vi"   >IlhasVirgens Americanas</option>
+						<option value="uz"   >Uzbequistão</option>
+
+						<option value="vu"   >Vanuatu</option>
+						<option value="va"   >Cidade do Vaticano</option>
+						<option value="ve"   >Venezuela</option>
+
+						<option value="vn"   >Vietnã</option>
+						<option value="wf"   >Wallis e Futuna</option>
+						<option value="eh"   >Saara Ocidental</option>
+
+						<option value="ye"   >Iêmen</option>
+						<option value="zm"   >Zâmbia</option>
+						<option value="zw"   >Zimbábue</option>
+
+						<option value="rs"   >Sérvia</option>
+						<option value="me"   >Montenegro</option>
+     				</select>
+
+
+					<label><?=TranslateItem("Mensagem","Message","Mensaje")?>:</label>
+
+					<textarea name="txtMensagem" id="txtMensagem" cols="50" rows="10"></textarea><br/>
+                                        
+                                        <?php
+                                            require_once('recaptchalib.php');
+                                            $publickey = "6LfTe_ASAAAAAPul8tRNdcjizs7KsGGcGUcp4b1c"; // you got this from the signup page
+                                            echo recaptcha_get_html($publickey);
+                                        ?>
+
+					<input type="reset" value="<?=TranslateItem("limpar","clear","borrar")?>" class="button">
+					<input type="submit" value="<?=TranslateItem("enviar","send","enviar")?>" class="buttonSub">
+
+
+					</form>
+				</fieldset>
+			</div>
+
+
+		</div>
+
+		</div>
+	</div>
+
+</div>
+
+<!--FOOTER-->
+<?require("../footer.php"); ?>
+
+
+<!--Google analytics-->
+
+</body>

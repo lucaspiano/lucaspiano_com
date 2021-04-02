@@ -1,5 +1,5 @@
 <?
-require_once("../classes/connection.php");
+require_once("../classes/MySQLConnection.php");
 require_once("../YoutubeHelper.php");
 
 //LANGUAGE
@@ -278,7 +278,7 @@ function GetHeader($text)
 							{
 							?>
 							<div id="anexos" style="float:right; margin-right:5px; clear:both;">
-								<span><strong><?=TranslateItem("Áudio", "Audio", "Audio")?>:&nbsp;</strong></span><a href="http://www.lucaspiano.com/content/files/<?=$row->FileName2?>" target="_blank">download</a>
+								<span><strong><?=TranslateItem("ï¿½udio", "Audio", "Audio")?>:&nbsp;</strong></span><a href="http://www.lucaspiano.com/content/files/<?=$row->FileName2?>" target="_blank">download</a>
 							</div>
 
 							<?

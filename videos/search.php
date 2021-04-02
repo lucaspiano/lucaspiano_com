@@ -1,5 +1,5 @@
 <?
-require_once("../classes/connection.php");
+require_once("../classes/MySQLConnection.php");
 require_once("../YoutubeHelper.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -42,7 +42,7 @@ require_once("../YoutubeHelper.php");
 		<div id="videos">
 
 		<div id="search">
-			<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Busca", "Search", "Búsqueda")?></h1>
+			<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Busca", "Search", "Bï¿½squeda")?></h1>
 
 			<fieldset>
 				<form action="search.php" method="GET">
@@ -77,7 +77,7 @@ require_once("../YoutubeHelper.php");
 			</fieldset>
 			<div id="categories">
 
-				<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Categorias", "Categories", "Categorías")?></h1>
+				<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Categorias", "Categories", "Categorï¿½as")?></h1>
 
 				<ul>
 				<?
@@ -98,7 +98,7 @@ require_once("../YoutubeHelper.php");
 		<div id="videosContent">
 
 				<div class="videoBox">
-					<h2><? TranslateItem("Resultados da busca", "Search results", "Resultados de la búsqueda"); ?></h2>
+					<h2><? TranslateItem("Resultados da busca", "Search results", "Resultados de la bï¿½squeda"); ?></h2>
 
 					<?
 					$youtube = new YoutubeHelper();

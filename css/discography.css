@@ -1,0 +1,100 @@
+/*
+
+Stylesheet - LucasPiano.com
+
+Home Page
+
+Author: TY Interactive
+2009-2011
+
+*/
+
+
+#how-works_pt
+{
+	float:left;
+	position:relative;
+	width:290px;
+	height:100%;
+	background:url(../images/bg_opaco.png) repeat;
+	border:1px solid #333;
+	padding:15px 15px 30px 15px;
+}
+
+	#how-works_pt h1 {background:url(../images/t_como-funciona.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+	#how-works_pt ol {padding:20px;}
+	#how-works_pt ol li {color:#ffae00;font-weight:bold; font-size:12px; line-height:1.5;}
+	#how-works_pt ol li span {font-weight:normal; color:#fff;}
+
+#how-works_en
+{
+	float:left;
+	position:relative;
+	width:290px;
+	height:100%;
+	background:url(../images/bg_opaco.png) repeat;
+	border:1px solid #333;
+	padding:15px 15px 30px 15px;
+}
+
+	#how-works_en h1 {background:url(../images/t_como-funciona_en.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+	#how-works_en ol {padding:20px;}
+	#how-works_en ol li {color:#ffae00;font-weight:bold; font-size:12px; line-height:1.5;}
+	#how-works_en ol li span {font-weight:normal; color:#fff;}
+
+#how-works_es
+{
+	float:left;
+	position:relative;
+	width:290px;
+	height:100%;
+	background:url(../images/bg_opaco.png) repeat;
+	border:1px solid #333;
+	padding:15px 15px 30px 15px;
+}
+
+	#how-works_es h1 {background:url(../images/t_como-funciona_es.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+	#how-works_es ol {padding:20px;}
+	#how-works_es ol li {color:#ffae00;font-weight:bold; font-size:12px; line-height:1.5;}
+	#how-works_es ol li span {font-weight:normal; color:#fff;}
+
+
+#discography-list
+{
+	float:left;
+	position:relative;
+	width:570px;
+	height:380px;
+	left:50px;
+	top:15px;
+}
+
+	#discography-list h1 /* {background:url(../images/t_loja.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;} */
+	#discography-list p {line-height:1.5; margin:15px 0; font-size:12px;}
+	
+	#discography-list ul {margin:0; padding:0; list-style:none;}
+	#discography-list ul li {width:100%; float:left; clear:both; height:auto; margin:10px 0; list-style:none;}
+	#discography-list ul li div.check {float:left; width:100%; padding:7px; background:#ffae00;}
+	#discography-list ul li div.check span {float:left; margin-left:5px; color:#000; font-size:13px; font-weight:bold;}
+	#discography-list ul li div.check input {float:left;}
+	#discography-list ul li div.info {float:left; width:100%; padding:7px; background:#444;}
+	#discography-list ul li div.info p {margin:0;}
+	#discography-list ul li div.duracao {float:left; width:100%; padding:7px; background:#333;}
+	#discography-list ul li div.duracao span {font-weight:bold;}
+	#discography-list ul li div.price {float:left; width:100%; padding:7px; background:#444; color:#ffae00;}
+	#discography-list ul li div.price span {font-weight:bold; color:#fff;}
+	#discography-list .submit {float:left; clear:both; margin-top:15px;}
+	
+	.message {background:url(../images/bg_opaco.png) repeat; border:1px solid #333; width:100%; padding:16px 0; margin-bottom:15px;}
+	.message span {margin-left:20px; font-weight:bold; color:#FFAC00; font-size:14px;}
+	.message span.green {margin-left:20px; font-weight:bold; color:#a0db00; font-size:18px;}
+	.message span.error {color:#ff0000;}
+	
+	
+	
+	
+	
+	

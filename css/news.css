@@ -1,0 +1,47 @@
+/*
+
+Stylesheet - LucasPiano.com
+
+Home Page
+
+Author: TY Interactive
+2009-2010
+
+filter: alpha(opacity=90);
+	 -moz-opacity: .9;
+	 KhtmlOpacity: .9;
+	 opacity: .9;
+
+*/
+
+#contentPage {height:450px; min-height:450px; height:auto !important;}
+
+
+#newsContent
+{
+
+	width:100%;
+	height:auto;
+}
+
+	#newsContent h1 {background:url(../images/t_news.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#newsContent h4 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:16px; margin-bottom:3px;}
+
+	.searchResult h1 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:24px; margin-bottom:10px;}
+
+	.searchResult
+	{
+		border-bottom:1px solid #333;
+		margin-top:10px;
+		padding:10px 0;
+	}
+
+	.searchResult span { font-size:12px; }
+
+
+
+
+
+
+
+

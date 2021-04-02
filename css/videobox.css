@@ -1,0 +1,28 @@
+.videosContent
+{
+	float:left;
+	height:auto;
+	width:100%;
+	margin:0 auto;
+}
+
+	.videosContent h1 {background:url(../images/t_videos.png) no-repeat top left; margin:0; padding:0; height:60px; text-indent:-9999px;}
+	.videosContent h1.en {background:url(../images/t_videos_en.png) no-repeat top left; margin:0; padding:0; height:60px; text-indent:-9999px;}	
+	
+	.videosContent h2 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; background:#FFAC00; color:#fff; padding-left:5px; width:600px; font-size:16px; margin-bottom:10px;}
+	.videosContent h3 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFF; font-size:16px; margin-bottom:10px;}
+	.videosContent h4 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:20px; margin-bottom:3px;}
+	.videosContent h5 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#fff; border-top:1px solid #FFAC00; width:100%; font-size:20px; padding-top:10px;}
+	.videosContent h6 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; width:100%; font-size:14px; font-weight:normal; margin-bottom:15px;}
+
+
+	.videoBox {border:1px solid #FFAC00; margin-bottom:20px; width:605px; height:auto !important; min-height:200px; height:200px; float:left;}
+	.videoItem {text-align:left; width:128px; height:160px; float:left; margin-left:17px; margin-bottom:15px;}
+	.videoItem img {border:1px solid #222; padding:1px; width:100%; }
+	.videoItem a {font-weight:bold; font-size:12px;}
+	.videoItem span {float:left; width:100%; margin-top:2px;}
+	.videoItem span a {font-weight:normal; font-size:11px;}
+
+	.right {float:left !important; margin-right:10px; font-size:12px; font-weight:bold; margin-top:15px; width: 100%; } 
+
+	#anexos {float:left !important; margin-right:10px; font-size:12px; font-weight:bold; margin-top:15px; width: 100%; margin-bottom: 15px; }

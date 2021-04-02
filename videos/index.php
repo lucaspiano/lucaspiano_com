@@ -1,5 +1,5 @@
 <?
-require_once("../classes/connection.php");
+require_once("../classes/MySQLConnection.php");
 require_once("../YoutubeHelper.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -48,7 +48,7 @@ require_once("../YoutubeHelper.php");
 		<div id="videos">
 
 		<div id="search">
-			<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Busca", "Search", "Búsqueda")?></h1>
+			<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Busca", "Search", "Bï¿½squeda")?></h1>
 			
 			<fieldset>
 				<form action="search.php" method="GET">
@@ -85,7 +85,7 @@ require_once("../YoutubeHelper.php");
 			</fieldset>
 			<div id="categories">
 
-				<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Categorias", "Categories", "Categorías")?></h1>
+				<h1 class="<?=$GLOBALS['LANG']?>"><?=TranslateItem("Categorias", "Categories", "Categorï¿½as")?></h1>
 
 				<ul>
 				<?
@@ -154,7 +154,7 @@ require_once("../YoutubeHelper.php");
 					<?
 					
 					// Paginacao
-					$total_reg = "12"; // número de registros por página
+					$total_reg = "12"; // nï¿½mero de registros por pï¿½gina
 					if (!$pagina) {
 						$pc = "1";
 					} else {
@@ -191,7 +191,7 @@ require_once("../YoutubeHelper.php");
 									
 					if ($totalRegistros == 0) {
 						echo "<div align='center'><h3>";
-						TranslateItem("Nenhum v&iacute;deo nesta categoria.","There is no videos in this category.","No hay videos en esta categoría.");
+						TranslateItem("Nenhum v&iacute;deo nesta categoria.","There is no videos in this category.","No hay videos en esta categorï¿½a.");
 						echo "</h3></div>";
 					}
 					else
@@ -273,7 +273,7 @@ require_once("../YoutubeHelper.php");
 					$rows = mysql_num_rows($result);
 					if ($rows == 0) {
 						echo "<div align='center'><h3>";
-						TranslateItem("Nenhum v&iacute;deo em destaque no momento","There is no featured videos at moment.","No hay vídeos destacados en momento.");
+						TranslateItem("Nenhum v&iacute;deo em destaque no momento","There is no featured videos at moment.","No hay vï¿½deos destacados en momento.");
 						echo "</h3></div>";
 					}
 					else
@@ -302,7 +302,7 @@ require_once("../YoutubeHelper.php");
 				</div>
 
 				<div class="videoBox">
-					<h2><?=TranslateItem("As pessoas também assistiram","People also watched","Las personas también vieron")?></h2>
+					<h2><?=TranslateItem("As pessoas tambï¿½m assistiram","People also watched","Las personas tambiï¿½n vieron")?></h2>
 
 					<?
 
@@ -334,7 +334,7 @@ require_once("../YoutubeHelper.php");
 					$rows = mysql_num_rows($result);
 					if ($rows == 0) {
 						echo "<div align='center'><h3>";
-						TranslateItem("Nenhum v&iacute;deo em destaque no momento","There is no featured videos at moment.","No hay vídeos destacados en momento.");
+						TranslateItem("Nenhum v&iacute;deo em destaque no momento","There is no featured videos at moment.","No hay vï¿½deos destacados en momento.");
 						echo "</h3></div>";
 					}
 					else

@@ -1,0 +1,75 @@
+/*
+
+Stylesheet - LucasPiano.com
+
+Home Page
+
+Author: TY Interactive
+2009-2010
+
+filter: alpha(opacity=90);
+	 -moz-opacity: .9;
+	 KhtmlOpacity: .9;
+	 opacity: .9;
+
+*/
+
+#contentPage {height:400px; min-height:400px; height:auto !important;}
+
+#agenda
+{
+	float:left;
+	position:relative;
+	width:290px;
+	height:100%;
+	background:url(../images/bg_opaco.png) repeat;
+	border:1px solid #333;
+	padding:15px 15px 30px 15px;
+}
+
+	#agenda h1 {background:url(../images/t_agenda.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+
+	.agendaItem
+	{
+		width:100%;
+		padding:15px 0 10px 0;
+		height:50px;
+		background:url(../images/line_news.png) no-repeat left bottom;
+	}
+
+		.agendaDate
+		{
+			float:left;
+			font-size:28px;
+			color:#FFAC00;
+			font-family: "Trebuchet MS", Tahoma, Arial, Verdana
+		}
+
+		.agendaText
+		{
+			position:relative;
+			left:15px;
+			top:5px;
+		}
+
+#sobremim
+{
+	float:left;
+	position:relative;
+	width:570px;
+	height:380px;
+	left:50px;
+	top:15px;
+}
+
+	#sobremim h1 {background:url(../images/t_sobre.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#sobremim p {line-height:1.6; margin-top:15px; font-size:12px;}
+
+
+	.about {margin-top:40px;}
+
+	.bio-avatar {float:left; width:440px; height:432px;}
+	.bio-text {float:left; width:490px; height:auto; margin-left:30px;}
+	.bio-text h1 {margin-bottom: 30px; font-size:36px; font-weight: normal; color: #ffffff;}
+	.bio-text p {font-size:13px; line-height: 1.6; margin-top:20px;}
+	.bio-text p.signature {color:#ffae00; margin-top:30px;}

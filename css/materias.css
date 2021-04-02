@@ -1,0 +1,91 @@
+/*
+
+Stylesheet - LucasPiano.com
+
+Home Page
+
+Author: TY Interactive
+2009-2010
+
+filter: alpha(opacity=90);
+	 -moz-opacity: .9;
+	 KhtmlOpacity: .9;
+	 opacity: .9;
+
+*/
+
+#contentPage {height:450px; min-height:450px; height:auto !important;}
+
+
+#articlesContent
+{
+
+	float:left;
+	position:relative;
+	height:auto;
+	width:570px;
+	left:50px;
+	top:15px;
+}
+
+	#articlesContent h1 {background:url(../images/t_materias.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#articlesContent h4 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:16px; margin-bottom:3px;}
+
+	#articleView h2 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:32px; margin-bottom:3px;}
+	#articleView h3 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#999; font-size:18px; margin-bottom:3px; font-weight:normal;}
+	#articleView img {padding:2px; border:2px solid #333; margin:15px 0;}
+	.header {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#666; font-size:12px; margin-bottom:3px;}
+	.footer {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#ccc; font-size:14px; margin-bottom:10px; width:100%; border-top:1px solid #222; padding-top:5px; float:left;}
+	.articleDescription {margin:15px 0 40px 0;}
+	.articleDescription p {line-height:1.5; text-align:justify; margin-top:15px;}
+
+	.searchResult h1 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:24px; margin-bottom:10px;}
+
+	.searchResult
+	{
+		border-bottom:1px solid #333;
+		margin-top:10px;
+		padding:10px 0;
+	}
+
+	.searchResult span { font-size:12px; }
+
+	#search
+	{
+		float:left;
+		width:290px;
+		background:url(../images/bg_opaco.png) repeat;
+		border:1px solid #333;
+		padding:15px 15px 30px 15px;
+		font-size:12px;
+		color:#FFF;
+		font-family: "Trebuchet MS", Tahoma, Arial, Verdana;
+	}
+	#search fieldset {border:none; margin-top:7px;}
+	#search label {float:left;	width:80px;	text-align:right; padding-right:5px;}
+	#search select {width:100px; background:#333; color:#FFF;}
+	#search .container {border: 1px solid #666; position: relative; width: 124px; height: 18px; overflow: hidden; margin-bottom:10px;}
+	#search .inpSelect {color: black; background: #333; color:#FFF;  position: absolute; width: 128px; top: -2px; left: -2px;}
+	#search input {background:#333; border:1px solid #666; padding:2px; color:#FFF;}
+	#search .button
+	{
+		border:none;
+		width:80px; height:26px;
+		font: 14px Verdana, Arial, Tahoma, Sans-Serif;
+		font-weight:bold;
+		color: #FFAC00;
+		background:url('../images/bg_button.gif') repeat-x #000;
+		text-align:center;
+		margin-top:10px;
+		float:right;
+		margin-right:26px;
+		border:1px solid #000;
+	}
+
+	#search h1 {background:url(../images/t_busca.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+
+
+
+
+
+

@@ -1,0 +1,211 @@
+/*
+
+Stylesheet - LucasPiano.com
+
+Home Page
+
+Author: TY Interactive
+2009-2010
+
+filter: alpha(opacity=90);
+	 -moz-opacity: .9;
+	 KhtmlOpacity: .9;
+	 opacity: .9;
+
+*/
+
+#contentPage {height:400px; min-height:400px; height:auto !important;}
+#credits
+{
+	float:left;
+	position:relative;
+	width:290px;
+	height:100%;
+	background:url(../images/bg_opaco.png) repeat;
+	border:1px solid #333;
+	padding:15px 15px 30px 15px;
+	font-size:12px;
+	color:#FFAC00;
+}
+
+	#credits h1 {background:url(../images/t_creditos.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#credits h1.en {background:url(../images/t_creditos_en.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+
+	#credits span {font-weight:bold; color:#FFACC00;}
+	#credits p {line-height:1.3; margin-top:15px; font-size:12px; color:#fff; margin-bottom:20px; margin-top:0; padding:0;}
+
+	.success {background:url(../images/bg_opaco.png) repeat; border:1px solid #333; width:100%; padding:16px 0;}
+	.success span {margin-left:20px; font-weight:bold; color:#FFAC00; font-size:14px;}
+	.success span.error {color:#ff0000;}
+
+.errorMsg{
+        background-color: #d87239;
+        padding: 10px;
+        color:#FFF;
+        font-size:12px;
+ }
+
+.successMsg{
+        background-color: #8e7c57;
+        padding: 10px;
+        color:#FFF;
+        font-size:12px;
+		    width: 98%;
+ }
+
+ .msg{
+ 	text-align: center;
+ }
+
+
+#contactForm
+{
+	float:left;
+	position:relative;
+	width:570px;
+	height:auto;;
+	left:50px;
+	top:15px;
+}
+
+	#contactForm h1 {background:url(../images/t_contato.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#contactForm h1.en {background:url(../images/t_contato_en.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#contactForm h1.es {background:url(../images/t_contato_es.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+	#contactForm p {line-height:1.6; margin-top:15px; font-size:12px;}
+
+
+
+/***************************FORMULARIOS ****************************/
+
+
+div.box
+ {
+	text-align:left;
+	font: 12px Trebuchet Ms, Verdana, Arial, Tahoma, Sans-Serif;
+	color:#333333;
+}
+
+div.box fieldset {margin-top:25px; border:none; width:500px;}
+
+div.box label
+ {
+	float:left;
+	width:120px;
+	text-align:right;
+	font: 16px Arial, Verdana, Tahoma, Sans-Serif;
+	color:#FFAC00;
+	font-weight:bold;
+	padding-right:10px;
+	text-transform:lowercase;
+}
+
+div.box img {padding:0 0 8px 3px;}
+
+.validate {padding-bottom:4px;}
+
+
+div.box input, div.box select
+{
+	margin-bottom:5px;
+	font-size:14px;
+}
+
+div.box input
+ {
+	height:20px;
+	margin-left:3px;
+	padding:3px;
+	font: 16px Arial, Verdana, Arial, Tahoma, Sans-Serif;
+	background:#222;
+	border:1px solid #444;
+	color:#FFF;
+	font-weight:bold;
+}
+
+div.box textarea
+ {
+	padding-left:3px;
+	font: 16px Arial, Verdana, Arial, Tahoma, Sans-Serif;
+	overflow:auto;
+	background:#222;
+	border:1px solid #444;
+	font-weight:bold;
+	color:#fff;
+	margin-left:2px;
+	width:360px;
+}
+
+div.box select
+ {
+	height:20px;
+	margin-bottom:5px;
+	background-color:#222;
+	font: 12px Verdana, Arial, Tahoma, Sans-Serif;
+	color:#FFF;
+	border:none;
+	margin-left:2px;
+}
+
+
+div.box input.radio
+ {
+	width:20px;
+	vertical-align:top;
+	background:#FFF none;
+	border:none;
+}
+
+div.box input.button
+ {
+	border:none;
+	width:100px; height:26px;
+	font: 14px Verdana, Arial, Tahoma, Sans-Serif;
+	font-weight:bold;
+	color: #FFAC00;
+	background:url('../images/bg_button.gif') repeat-x #000;
+	text-align:center;
+	margin-top:10px;
+	float:right;
+	border:1px solid #000;
+	margin-right: 158px;
+
+}
+
+div.box input.buttonSub {
+	border:none;
+	width:100px; height:26px;
+	font: 14px Verdana, Arial, Tahoma, Sans-Serif;
+	font-weight:bold;
+	color: #FFAC00;
+	background:url('../images/bg_button.gif') repeat-x #000;
+	text-align:center;
+	margin-top:10px;
+	margin-right:5px;
+	border:1px solid #000;
+    margin-left: 134px;
+	/*float:right;*/
+}
+
+/*/////////////////////////*/
+.g-recaptcha{
+	margin-top: 10px;    
+	margin-bottom: 10px;    
+	margin-left: 133px
+}
+
+@media screen and (max-width: 1024px){
+	div.box input.buttonSub {
+    	margin-left:0px; */
+    
+	}
+
+	div.box input.button {
+   		position: absolute;
+    	left: 101px;
+	}
+	
+}
+	
+	

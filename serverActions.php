@@ -1,5 +1,5 @@
 <?
-require_once("./classes/connection.php");
+require_once("./classes/MySQLConnection.php");
 
 echo "<body bgcolor='#000'>";
 
@@ -7,7 +7,7 @@ function anti_injection($sql)
 {
 	// remove palavras que contenham sintaxe sql
 	$sql = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$sql);
-	$sql = trim($sql);//limpa espaços vazio
+	$sql = trim($sql);//limpa espaï¿½os vazio
 	$sql = strip_tags($sql);//tira tags html e php
 	$sql = addslashes($sql);//Adiciona barras invertidas a uma string
 	$sql = mysql_real_escape_string($sql);
@@ -19,7 +19,7 @@ function isValidEmail($email){
 }
 
 
-//Recupera o Modulo e a açao do Form (inclusao ou alteracao) e define a ação do SQL
+//Recupera o Modulo e a aï¿½ao do Form (inclusao ou alteracao) e define a aï¿½ï¿½o do SQL
 
 $nome = anti_injection($_POST['txtNome']);
 $email = anti_injection($_POST['txtEmail']);
@@ -31,7 +31,7 @@ if (empty($nome) or empty($email) or $nome == "Seu nome" or $email == "Seu e-mai
 }
 
 if (!isValidEmail($email)) {
-	echo "<script>alert('O email digitado não é válido!');</script>";
+	echo "<script>alert('O email digitado nï¿½o ï¿½ vï¿½lido!');</script>";
 	echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=http://www.lucaspiano.com/'>";
 	exit();
 }
@@ -39,14 +39,14 @@ if (!isValidEmail($email)) {
 $sql = "SELECT Email FROM Newsletter WHERE Email = '$email'";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) > 0) {
-	echo "<script>alert('Email já existe em nossa base de dados!');</script>";
+	echo "<script>alert('Email jï¿½ existe em nossa base de dados!');</script>";
 	echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=http://www.lucaspiano.com/'>";
 	exit();
 }
 
 
 
-// Define a Query para inclusão no bd
+// Define a Query para inclusï¿½o no bd
 
 $sql = "INSERT INTO Newsletter  (Codigo,
 								 Nome,

@@ -1,0 +1,210 @@
+/*
+
+Stylesheet - LucasPiano.com
+
+Home Page
+
+Author: TY Interactive
+2009-2010
+
+filter: alpha(opacity=90);
+	 -moz-opacity: .9;
+	 KhtmlOpacity: .9;
+	 opacity: .9;
+
+*/
+
+#contentPage {min-height:400px; height:auto !important; height:400px;}
+#search
+{
+	float:left;
+	width:290px;
+	background:url(../images/bg_opaco.png) repeat;
+	border:1px solid #333;
+	padding:15px 15px 30px 15px;
+	font-size:16px;
+	color:#FFAC00;
+}
+
+	#search h1 {background:url(../images/t_busca.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#search h1.en {background:url(../images/t_busca_en.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#search h1.es {background:url(../images/t_busca_es.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+	#search h2 {background:url(../images/t_categorias.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#search h2.en {background:url(../images/t_categorias_en.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#search h2.es {background:url(../images/t_categorias_es.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+
+	#categories {margin-top:30px;}
+	
+	#categories h1 {background:url(../images/t_categorias.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#categories h1.en {background:url(../images/t_categorias_en.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	#categories h1 .es{background:url(../images/t_categorias_es.png) no-repeat top left; margin:0; padding:0; height:70px; text-indent:-9999px;}
+	
+	#categories ul
+	{
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+
+	#categories ul li a
+	{
+		display:block;
+		padding:7px 10px;
+		background:#1c1c1c;
+		font-size:18px;
+		color:#FFAC00;
+		margin-top:1px;
+		font-family: "Trebuchet MS", Tahoma, Arial, Verdana
+	}
+
+	#categories ul li.selected a
+	{
+		color:#FFF;
+	}
+
+	#categories ul li a:hover
+	{
+		color:#FFF;
+		text-decoration:none;
+		background:#FFAC00;
+	}
+
+
+
+
+#videos-content
+{
+	float:left;
+	height:auto;
+	width:100%;
+	margin:0 auto;
+}
+
+#videosContent
+{
+	float:left;
+	position:relative;
+	height:auto;
+	width:570px;
+	left:50px;
+}
+
+	#videosContent h1 {background:url(../images/t_videos.png) no-repeat top left; margin:0; padding:0; height:60px; text-indent:-9999px;}
+	#videosContent h1.en {background:url(../images/t_videos_en.png) no-repeat top left; margin:0; padding:0; height:60px; text-indent:-9999px;}	
+	
+	#videosContent h2 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; background:#FFAC00; color:#fff; padding-left:5px; width:600px; font-size:16px; margin-bottom:10px;}
+	#videosContent h3 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFF; font-size:16px; margin-bottom:10px;}
+	#videosContent h4 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:20px; margin-bottom:3px;}
+	#videosContent h5 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#fff; border-top:1px solid #FFAC00; width:100%; font-size:20px; padding-top:10px;}
+	#videosContent h6 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; width:100%; font-size:14px; font-weight:normal; margin-bottom:15px;}
+
+	#videosContent ul
+	{
+		width:100%;
+		margin:25px 0 0 0;
+		padding:0;
+		list-style:none;
+
+	}
+
+		#videosContent ul li
+		{
+			margin:0;
+			padding:7px 0;
+			list-style:none;
+			border-bottom:1px solid #333;
+		}
+
+		#videosContent ul li a, #sheetsContent ul li span
+		{
+			font-family: "Trebuchet MS", Tahoma, Arial, Verdana;
+			background:url(../images/star.png) no-repeat left center;
+			font-size:13px;
+			color:#FFAC00;
+			padding-left:25px;
+			font-weight:bold;
+		}
+
+		#videosContent ul li span {background:none; padding-top:3px; color:#FFF;}
+
+	#search {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; font-size:12px; color:#FFF;}
+	#search fieldset {border:none; margin-top:7px;}
+	#search label {float:left;	width:80px;	text-align:right; padding-right:5px;}
+	#search select {width:100px; background:#333; color:#FFF;}
+	#search .container {border: 1px solid #666; position: relative; width: 124px; height: 18px; overflow: hidden; margin-bottom:10px;}
+	#search .inpSelect {color: black; background: #333; color:#FFF;  position: absolute; width: 128px; top: -2px; left: -2px;}
+	#search input {background:#333; border:1px solid #666; padding:2px; color:#FFF;}
+	#search .button
+	{
+		border:none;
+		width:80px; height:26px;
+		font: 14px Verdana, Arial, Tahoma, Sans-Serif;
+		font-weight:bold;
+		color: #FFAC00;
+		background:url('../images/bg_button.gif') repeat-x #000;
+		text-align:center;
+		margin-top:10px;
+		float:right;
+		margin-right:26px;
+		border:1px solid #000;
+	}
+
+	.searchResult h1 {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; color:#FFAC00; font-size:24px; margin-bottom:10px;}
+	.searchResult
+	{
+		border-bottom:1px solid #333;
+		margin-top:10px;
+		padding:10px 0;
+	}
+
+	.searchResult span { font-size:12px; }
+
+
+	.videoBox {border:1px solid #FFAC00; margin-bottom:20px; width:605px; height:auto !important; min-height:200px; height:200px; float:left;}
+	.videoItem {text-align:left; width:128px; height:160px; float:left; margin-left:17px; margin-bottom:15px;}
+	.videoItem img {border:1px solid #222; padding:1px; width:100%; }
+	.videoItem a {font-weight:bold; font-size:12px;}
+	.videoItem span {float:left; width:100%; margin-top:2px;}
+	.videoItem span a {font-weight:normal; font-size:11px;}
+
+	.right {float:right; margin-right:10px; font-size:12px; font-weight:bold; margin-top:5px;}
+
+	#comments {border-top:1px solid #FFAC00; margin-top:40px; padding:10px; background:url(../images/bg_opaco.png) repeat;}
+
+	#comments {font-family: "Trebuchet MS", Tahoma, Arial, Verdana; font-size:12px; color:#FFF;}
+	#comments h4 {margin-bottom:20px; margin-top:10px;}
+	#comments fieldset {border:none; padding-top:30px;}
+	#comments label {float:left; width:80px; text-align:right; padding-right:5px; margin-top:5px;}
+	#comments input, #comments textarea {background:#333; border:1px solid #666; padding:2px; margin-top:5px; color:#FFF;}	
+	#comments .button
+	 {
+		border:none;
+		width:100px; height:26px;
+		font: 14px Verdana, Arial, Tahoma, Sans-Serif;
+		font-weight:bold;
+		color: #FFAC00;
+		background:url('../images/bg_button.gif') repeat-x #000;
+		text-align:center;
+		margin-top:10px;
+		margin-left:85px;
+		float:left;
+		border:1px solid #000;
+		cursor:pointer;
+	}
+
+	.commentItem {padding:15px 0; border-bottom:1px solid #333;}
+	.commentItem span {font-weight:bold; font-size:14px; width:100%; color:#FFAC00; margin:0; padding:0;}
+	.commentItem p {margin-top:1px; line-height:1.4;}
+
+
+	.success {background:url(../images/bg_opaco.png) repeat; border:1px solid #333; width:100%; padding:16px 0;}
+	.success span {margin-left:20px; font-weight:bold; color:#FFAC00; font-size:14px;}
+	.success span.error {color:#ff0000;}
+
+
+#paginacao {margin-top:10px; padding-bottom:20px; float:left; clear:both; width:100%; text-align:center;}
+#paginacao a.page-number,
+#paginacao span {display:inline-block; width:12px; height:13px; padding:3px; text-align:center; background:#333;}
+
+#paginacao a.page-number:hover {text-decoration:none; background:#fff; color:#000;}
