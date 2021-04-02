@@ -5,6 +5,11 @@ return [
     'staticData' => [
         'meta' => __DIR__ . '/../data/meta.json'
     ],
+    'youtube' => [
+        'apiBaseUrl' => 'https://www.googleapis.com/youtube/v3',
+        'apiKey' => 'AIzaSyBLtsBUJ6Sy6pzGEKeVjUH4KVgAwBRHB6c',
+        'channelId' => 'UCR2dv_znZ_o5GO8tUMGZZUg'
+    ],
     'db' => [
         'host' => 'mysql.lucaspiano.com',
         'username' => 'lucaspiano',
