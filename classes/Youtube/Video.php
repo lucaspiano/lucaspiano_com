@@ -5,12 +5,14 @@ class Video
     private $id;
     private $viewCount;
     private $viewCountInt;
+    private $comments;
 
-    public function __construct($id, $viewCount, $viewCountInt)
+    public function __construct($id, $viewCount, $viewCountInt, $comments = [])
     {
         $this->id = $id;
         $this->viewCount = $viewCount;
         $this->viewCountInt = number_format(intval($viewCountInt),0,",",".");
+        $this->comments = $comments;
     }
 
     /**
@@ -35,5 +37,13 @@ class Video
     public function getViewCountInt()
     {
         return $this->viewCountInt;
+    }
+
+    /**
+     * @return Comment[]
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

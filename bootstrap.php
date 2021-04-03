@@ -8,6 +8,7 @@ if ($config['environment'] === 'production' && $_SERVER['HTTPS'] !== "on") {
     exit;
 }
 
+date_default_timezone_set('America/Sao_Paulo');
 session_start();
 
 require_once __DIR__ . "/classes/MySQLConnection.php";

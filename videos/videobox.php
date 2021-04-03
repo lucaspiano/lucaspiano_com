@@ -94,7 +94,7 @@ function GetHeader($text) {
         $codigoPlaylist = $_GET['p'];
 
         if (isset($codigoPlaylist)) {
-            $playlist = $youtubeHelper->GetPlayListById($codigoPlaylist);
+            $playlist = $youtubeHelper->getPlayListById($codigoPlaylist);
         ?>
 
             <h5><?= $playlist->getTitle() ?></h5>
@@ -163,16 +163,16 @@ function GetHeader($text) {
             <h6><?= $row->NomeCategoria ?></h6>
 
             <object width="700" height="400">
-                <meta property="og:video" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?=$codigoVideo?>" />
-                <meta property="og:url" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?=$codigoVideo?>" />
-                <meta property="og:image" content="http://i1.ytimg.com/vi/<?=$codigoVideo?>/hqdefault.jpg" />
-                <meta property="og:site_name" content="/videos/video.php?v=<?=$codigoVideo?>&hl=pt-br&fs=1&color1=0xe1600f&color2=0xfebd01" />
+                <meta property="og:video" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?= $codigoVideo ?>" />
+                <meta property="og:url" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?= $codigoVideo ?>" />
+                <meta property="og:image" content="http://i1.ytimg.com/vi/<?= $codigoVideo ?>/hqdefault.jpg" />
+                <meta property="og:site_name" content="/videos/video.php?v=<?= $codigoVideo ?>&hl=pt-br&fs=1&color1=0xe1600f&color2=0xfebd01" />
                 <meta property="og:description" content="Lucas Piano - <?=$row->TituloVideo?>" />
-                <meta property="og:url" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?=$codigoVideo?>&hl=pt-br&fs=1&color1=0xe1600f&color2=0xfebd01" />
+                <meta property="og:url" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?= $codigoVideo ?>&hl=pt-br&fs=1&color1=0xe1600f&color2=0xfebd01" />
 
                 <param name="allowFullScreen" value="true">
                 <param name="allowscriptaccess" value="always">
-                <iframe width="700" height="400" src="https://www.youtube.com/embed/<?=$videoCode?>?rel=0&autoplay=1&mute=1&enablejsapi=1&iv_load_policy=3&controls=1&disablekb=1&egm=1&showinfo=0&loop=1&modestbranding=1&vq=hd1080" frameborder="0" allowfullscreen"></iframe>
+                <iframe width="700" height="400" src="https://www.youtube.com/embed/<?= $videoCode ?>?rel=0&autoplay=1&mute=1&enablejsapi=1&iv_load_policy=3&controls=1&disablekb=1&egm=1&showinfo=0&loop=1&modestbranding=1&vq=hd1080" frameborder="0" allowfullscreen"></iframe>
             </object>
 
             <span class="right"><?= $video->getViewCount()?> views</span>
@@ -197,8 +197,6 @@ function GetHeader($text) {
 
         <h4><?= TranslateItem("Coment&aacute;rios", "Comments", "Coment&aacute;rios") ?></h4>
 
-        <div class="fb-comments" data-href="<?= $config['baseUrl'] ?>/videos/videobox.php?v=<?=$codigoVideo?>" data-num-posts="50" data-width="540" send_notification_uid="727291632" data-notify="true" data-colorscheme="light"></div>
-
         <div class="cutOffStripesContainer greyBg">
             <div class="cutOffStripeTop"></div>&nbsp;
             <div class="cutOffStripeBottom"></div>
@@ -206,46 +204,6 @@ function GetHeader($text) {
 
         <div class="wrappedContent">
             <!--h2>Comments</h2-->
-            <script type= "text/javascript">
-                function getYouTubeInfo() {
-                    $.ajax({
-                        url: "http://gdata.youtube.com/feeds/api/videos/<?= $videoCode ?>?v=2&alt=json",
-                        dataType: "jsonp",
-                        success: function (data) { parseresults(data); }
-                    });
-                }
-
-                function parseresults(data) {
-                    var title = data.entry.title.$t;
-                    var description = data.entry.media$group.media$description.$t;
-                    var viewcount = data.entry.yt$statistics.viewCount;
-                    var author = data.entry.author[0].name.$t;
-
-                    $('#title').html(title);
-                    $('#description').html('<b>Description</b>: ' + description);
-                    $('#extrainfo').html('<b>Author</b>: ' + author + '<br/><br/><br/><b>Views</b>: ' + viewcount);
-
-                    getComments(data.entry.gd$comments.gd$feedLink.href + '&max-results=50&alt=json', 1);
-                }
-
-                function getComments(commentsURL, startIndex) {
-                    $.ajax({
-                        url: commentsURL + '&start-index=' + startIndex,
-                        dataType: "jsonp",
-                        success: function (data) {
-                            $.each(data.feed.entry, function(key, val) {
-                                $('#comments').append('<dt><strong>' + val.author[0].name.$t + '</strong></dt>');
-                                $('#comments').append('<dd>' + val.content.$t + '</dd>');
-                            });
-                            if ($(data.feed.entry).size() == 50) { getComments(commentsURL, startIndex + 50); }
-                        }
-                    });
-                }
-
-                $(document).ready(function () {
-                    getYouTubeInfo();
-                });
-            </script>
             <dl id="comments"></dl>
         </div>
 
@@ -262,12 +220,51 @@ function GetHeader($text) {
 <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
+
     try {
         var pageTracker = _gat._getTracker("UA-6805686-2");
         pageTracker._trackPageview();
-    } catch(err) {}</script>
+    } catch(err) {}
+
+    function getYouTubeInfo() {
+        $.ajax({
+            url: "http://gdata.youtube.com/feeds/api/videos/<?= $videoCode ?>?v=2&alt=json",
+            dataType: "jsonp",
+            success: function (data) { parseresults(data); }
+        });
+    }
+
+    function parseresults(data) {
+        var title = data.entry.title.$t;
+        var description = data.entry.media$group.media$description.$t;
+        var viewcount = data.entry.yt$statistics.viewCount;
+        var author = data.entry.author[0].name.$t;
+
+        $('#title').html(title);
+        $('#description').html('<b>Description</b>: ' + description);
+        $('#extrainfo').html('<b>Author</b>: ' + author + '<br/><br/><br/><b>Views</b>: ' + viewcount);
+
+        getComments(data.entry.gd$comments.gd$feedLink.href + '&max-results=50&alt=json', 1);
+    }
+
+    function getComments(commentsURL, startIndex) {
+        $.ajax({
+            url: commentsURL + '&start-index=' + startIndex,
+            dataType: "jsonp",
+            success: function (data) {
+                $.each(data.feed.entry, function(key, val) {
+                    $('#comments').append('<dt><strong>' + val.author[0].name.$t + '</strong></dt>');
+                    $('#comments').append('<dd>' + val.content.$t + '</dd>');
+                });
+                if ($(data.feed.entry).size() == 50) { getComments(commentsURL, startIndex + 50); }
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        getYouTubeInfo();
+    });
+</script>
 
 </body>
 </html>

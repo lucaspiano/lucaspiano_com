@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/YoutubeHelperParamException.php";
 require_once __DIR__ . "/Video.php";
+require_once __DIR__ . "/Comment.php";
 require_once __DIR__ . "/Playlist.php";
 
 class YoutubeHelper
@@ -91,8 +92,35 @@ class YoutubeHelper
 		return new Video(
             $result->id,
             $result->statistics->viewCount,
-            $result->statistics->viewCount
+            $result->statistics->viewCount,
+            $this->getVideoComments($result->id)
         );
+	}
+
+    public function getVideoComments($videoId)
+    {
+        $params = [
+            'part' => 'snippet,replies',
+            'videoId' => $videoId,
+            'key' => $this->params->getApiKey(),
+        ];
+
+        $comments = $this->getJson('commentThreads', $params)->items;
+        $collection = [];
+
+        foreach ($comments as $comment) {
+            $collection[] = new Comment(
+                $comment->id,
+                $comment->snippet->topLevelComment->snippet->textDisplay,
+                $comment->snippet->topLevelComment->snippet->authorDisplayName,
+                $comment->snippet->topLevelComment->snippet->authorProfileImageUrl,
+                $comment->snippet->topLevelComment->snippet->likeCount,
+                $comment->snippet->topLevelComment->snippet->publishedAt
+            );
+        }
+
+
+        return $collection;
 	}
 
 	private function getJson($method, $params)
