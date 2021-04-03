@@ -73,6 +73,10 @@ class YoutubeHelper
         );
 	}
 
+    /**
+     * @param $videoId
+     * @return Video
+     */
 	public function getVideoDetails($videoId)
 	{
 		$params = [
@@ -93,12 +97,12 @@ class YoutubeHelper
 
 	private function getJson($method, $params)
 	{
-		$api_url = $this->params->getApiBaseUrl() . $method . '?' . http_build_query($params);
+		$apiUrl = $this->params->getApiBaseUrl() . '/' . $method . '?' . http_build_query($params);
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_URL, $api_url);
+		curl_setopt($ch, CURLOPT_URL, $apiUrl);
 		$result = curl_exec($ch);
 		curl_close($ch);
 

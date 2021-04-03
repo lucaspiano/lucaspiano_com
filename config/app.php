@@ -2,6 +2,7 @@
 
 return [
     'environment' => (isLocalhost() ? 'development' : 'production'),
+    'baseUrl' => (isLocalhost() ? 'http://' . $_SERVER['HTTP_HOST'] : 'https://lucaspiano.com'),
     'staticData' => [
         'meta' => __DIR__ . '/../data/meta.json'
     ],
@@ -12,9 +13,10 @@ return [
     ],
     'db' => [
         'host' => 'mysql.lucaspiano.com',
+        'port' => 3306,
+        'dbname' => 'lucaspiano',
         'username' => 'lucaspiano',
-        'password' => '106658',
-        'database' => 'lucaspiano',
+        'password' => '106658'
     ]
 ];
 
@@ -28,6 +30,10 @@ function isLocalhost() {
     }
 
     if (strstr($_SERVER['HTTP_HOST'], '0.0.0.0')) {
+        return true;
+    }
+
+    if (strstr($_SERVER['HTTP_HOST'], '127.0.0.1')) {
         return true;
     }
 

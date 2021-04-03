@@ -19,7 +19,7 @@ class MySQLConnection
             $config['host'],
             $config['port'],
             $config['dbname'],
-            $config['charset']
+            'utf8'
         );
 
         $this->pdo = new PDO($dsn, $config['username'], $config['password'], [
@@ -30,7 +30,7 @@ class MySQLConnection
     }
 
     /**
-     *
+     * @return void
      */
     public function close()
     {

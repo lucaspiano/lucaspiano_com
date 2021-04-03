@@ -1,0 +1,269 @@
+
+/*
+
+Stylesheet - LucasPiano.com
+Commom for all pages
+
+Author: TY Interactive
+2009-2010
+
+Colors used in all site
+
+#FFAC00 - Orange
+#FFFFFF - White
+#000000 - Black
+
+
+*/
+
+
+
+* { margin:0; padding:0; }
+html, body { height: 100%; }
+body
+{
+	background:#000000;
+	font: 11px Tahoma, Verdana, Arial, sans-serif;
+	color:#FFF;
+}
+
+a {color:#FFAC00; text-decoration:none;}
+a:hover {color:#FFF; text-decoration:underline;}
+
+
+h1, h3 { color:#ffae00; font-weight:bold;}
+h1 {font-size:24px;}
+h2 {font-size:18px; color:#fff;}
+
+#header, #banner, #contentPage, #footer { width:100%; }
+#headerContent, #bannerContent, #content, #footerContent {width:960px; margin:0 auto;}
+
+#header
+{
+	height:143px;
+	background:url(../images/bg_header.jpg) no-repeat center;
+
+}
+
+#headerContent
+{
+	height:143px;
+	position:relative;
+}
+	#logo
+	{
+		width:268px;
+		height:74px;
+		top:45px;
+		left:3px;
+		position:absolute;
+	}
+
+	#menu
+	{
+		position:absolute;
+		top:45px;
+		right:0px;
+		width:auto;
+		height:49px;
+		background:url(../images/border_menu_outer.gif) repeat-x;
+		z-index:1000;
+	}
+
+	#languageSelector
+	{
+		position:absolute;
+		top:15px;
+		right:0px;
+	}
+
+#banner { height:340px; }
+#bannerInternals { height:262px;}
+
+#contentPage
+{
+	padding:20px 0 40px 0;
+	display:table;
+	background:url(../images/bg_content.jpg) repeat-y;
+	height:100%;
+}
+
+/*MESSAGES RSV*/
+
+/**************** RSV *************/
+.errorField
+      {
+        border: 1px solid red;
+        background-color:Red;
+        color: #990000;
+      }
+
+      #rsvErrors {
+        display: none;
+        background-color: #000;
+        border: 4px solid #FFAC00;;
+        padding: 8px;
+        color:#fff;
+        font-size:12px;
+        margin-top:10px;
+        }
+
+/* NAVIGATION */
+
+ul.topnav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	float: left;
+	width:auto;
+	background: #222;
+	font-size: 1.3em;
+	background: url(../images/topnav_bg.gif) repeat-x;
+	height:43px;
+	font-family: Arial, Verdana, sans-serif;
+	border:3px solid black;
+	z-index:1000;
+}
+
+ul.topnav li {
+	float: left;
+	margin: 0;
+	padding: 5px 10px 0 10px;
+	position: relative; /*--Declare X and Y axis base--*/
+
+	background:url(../images/border_menu.gif) no-repeat right;
+	z-index:1000;
+}
+ul.topnav li a{
+	padding: 7px 5px;
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	float: left;
+	text-transform:uppercase;
+	z-index:1000;
+}
+ul.topnav li a:hover{
+	background: url(../images/topnav_hover.gif) repeat-x center bottom;
+	z-index:1000;
+}
+ul.topnav li span { /*--Drop down trigger styles--*/
+	width: 17px;
+	height: 35px;
+	float: left;
+	background: url(../images/subnav_btn.gif) no-repeat center top;
+	z-index:1000;
+}
+ul.topnav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.topnav li ul.subnav {
+	list-style: none;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 40px;
+	background: #333;
+	margin: 0; padding: 0;
+	z-index:1000;
+
+	display: none;
+	float: left;
+	width: 150px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border: 1px solid #111;
+}
+ul.topnav li ul.subnav li{
+	margin: 0; padding: 0;
+	z-index:1000;
+
+	border-top: 1px solid #252525; /*--Create bevel effect--*/
+	border-bottom: 1px solid #444; /*--Create bevel effect--*/
+	clear: both;
+	width: 150px;
+}
+html ul.topnav li ul.subnav li a {
+	float: left;
+	text-transform:none;
+	width: 125px;
+	background: #333 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+	padding-left: 20px;
+	z-index:1000;
+}
+html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+	background: #222 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+	color:#FFAC00;
+	z-index:1000;
+}
+
+
+/*FOOTER*/
+
+
+#footer
+{
+	height:105px;
+	background:url(../images/bg_footer.jpg) no-repeat center;
+	padding-top:30px;
+	color:#CCC;
+	font-size:11px;
+}
+
+#footer a {color:#CCC;}
+#footer a:hover {color:#FFAC00;}
+
+	.footerNav
+	{
+		float:left;
+		width:334px;
+		color:#CCC;
+		font-size:11px;
+	}
+
+		.footerNav ul
+		{
+			display:block;
+		}
+
+		.footerNav li
+		{
+			display:inline;
+			list-style:none;
+			margin:0;
+			padding:0;
+		}
+
+		.footerNav li a
+		{
+			padding:0 5px;
+			border-right:1px solid #CCC;
+			font-weight:bold;
+			text-transform:lowercase;
+
+		}
+
+		.footerNav li.first a
+		{
+			padding:0 5px 0 0;
+		}
+
+		.footerNav li.last a
+		{
+			padding:0 0 0 5px;
+			border-right:none;
+		}
+
+		.footerCopyright {margin-top:10px; float:left; line-height:1.6; width:100%; text-align:right;}
+
+	.footerPayments {float:left; margin-left:30px;}
+	.footerPayments img {margin-top:15px;}
+	.footerLinks {float:left; margin-left:4px;}
+
+
+/* FACEBOOK GADGETS */
+
+#fb-like {position:absolute; top:60px; left:280px;}
+
+
+
+
+
