@@ -5,6 +5,10 @@ class Video
     private $id;
     private $viewCount;
     private $viewCountInt;
+
+    /**
+     * @var Comment[]
+     */
     private $comments;
 
     public function __construct($id, $viewCount, $viewCountInt, $comments = [])

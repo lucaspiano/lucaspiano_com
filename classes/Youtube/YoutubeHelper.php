@@ -108,6 +108,10 @@ class YoutubeHelper
         $comments = $this->getJson('commentThreads', $params)->items;
         $collection = [];
 
+        if (empty($comments)) {
+            return $collection;
+        }
+
         foreach ($comments as $comment) {
             $collection[] = new Comment(
                 $comment->id,

@@ -16,7 +16,7 @@ require_once __DIR__ . "/classes/Youtube/YoutubeParams.php";
 require_once __DIR__ . "/classes/Youtube/YoutubeHelper.php";
 require_once __DIR__ . "/classes/StaticDataHelper.php";
 
-//$db = new MySQLConnection($config['db']);
+$dbConnection = new MySQLConnection($config['db']);
 $staticData = new StaticDataHelper($config['staticData']);
 
 $youtubeParams = new YoutubeParams(

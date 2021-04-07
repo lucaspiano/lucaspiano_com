@@ -12,11 +12,14 @@ return [
         'channelId' => 'UCR2dv_znZ_o5GO8tUMGZZUg'
     ],
     'db' => [
-        'host' => 'mysql.lucaspiano.com',
+        //'host' => 'mysql.lucaspiano.com',
+        'host' => 'lucaspiano-db',
         'port' => 3306,
         'dbname' => 'lucaspiano',
-        'username' => 'lucaspiano',
-        'password' => '106658'
+        'username' => 'root',
+        //'username' => 'lucaspiano',
+        //'password' => '106658'
+        'password' => 'secret'
     ]
 ];
 

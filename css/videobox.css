@@ -80,3 +80,21 @@
 	50%  { background: rgba(255,255,255,0.1); }
 	100% { background: rgba(255,255,255,0); }
 }
+
+.video-comment {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2em;
+}
+
+.video-comment .comment-avatar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: .5em;
+}
+
+.video-comment .comment-avatar img {
+	border-radius: 24px;
+	margin-right: 1em;
+}
