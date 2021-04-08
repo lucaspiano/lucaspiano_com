@@ -174,7 +174,10 @@ $comments = $video->getComments();
             </div>
         <?php endif; ?>
 
-        <br> </br><br></br> <br> </br>
+        <div class="comment-form" style="display: none">
+            <textarea id="comment-text" placeholder="Escreva um comentário público..."></textarea>
+            <button type="button" id="btn-comment">Comentar</button>
+        </div>
 
         <h4><?= TranslateItem("Coment&aacute;rios", "Comments", "Coment&aacute;rios") ?></h4>
 
@@ -220,6 +223,9 @@ $comments = $video->getComments();
     const logoutButton = document.querySelector("#btn-logout");
     const likeButton = document.querySelector("#btn-like");
     const dislikeButton = document.querySelector("#btn-dislike");
+    const commentContainer = document.querySelector(".comment-form");
+    const commentTextarea = document.querySelector("textarea#comment-text");
+    const commentButton = document.querySelector("button#btn-comment");
 
     const scopes = [
         "https://www.googleapis.com/auth/youtube",
@@ -230,17 +236,61 @@ $comments = $video->getComments();
     likeButton.addEventListener('click', function (e) {
         e.preventDefault();
         rateAction('like')
-    })
+    });
 
     dislikeButton.addEventListener('click', function (e) {
         e.preventDefault();
         rateAction('dislike')
-    })
+    });
+
+    commentButton.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (commentTextarea.value === '') {
+            alert('Preencha o campo de comentário para poder continuar.');
+            return false;
+        }
+
+        commentTextarea.disabled = true;
+        commentButton.disabled = true;
+
+        gapi.client.youtube.commentThreads.insert({
+            "part": ["snippet"],
+            "resource": {
+                "snippet": {
+                    "videoId": "<?= $video->getCode() ?>",
+                    "topLevelComment": {
+                        "snippet": {
+                            "textOriginal": commentTextarea.value
+                        }
+                    }
+                }
+            }
+        })
+        .then(
+            function(response) {
+                console.log(`comment action triggered`);
+                console.log("Response", response);
+
+                commentTextarea.value = '';
+                commentTextarea.disabled = false;
+                commentButton.disabled = false;
+
+                window.location = window.location;
+            },
+            function(err) {
+                commentTextarea.disabled = false;
+                commentButton.disabled = false;
+                commentTextarea.focus();
+                console.error("comment action error", err);
+            }
+        );
+    });
 
     logoutButton.addEventListener('click', function (e) {
         e.preventDefault();
         gapi.auth2.getAuthInstance().signOut();
-    })
+    });
 
     function handleClientLoad() {
         gapi.load('client:auth2', initClient);
@@ -269,11 +319,13 @@ $comments = $video->getComments();
             logoutButton.style.display = 'inline';
             likeButton.style.display = 'inline';
             dislikeButton.style.display = 'inline';
+            commentContainer.style.display = 'block';
         } else {
             loginButton.style.display = 'block';
             logoutButton.style.display = 'none';
             likeButton.style.display = 'none';
             dislikeButton.style.display = 'none';
+            commentContainer.style.display = 'none';
         }
     }
 

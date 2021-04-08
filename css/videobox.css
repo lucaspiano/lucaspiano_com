@@ -103,3 +103,21 @@
 	justify-content: space-between;
 	margin-top: 1em;
 }
+
+div.comment-form {
+	margin-bottom: 1em;
+}
+
+textarea#comment-text {
+	font-family: "Trebuchet MS", Tahoma, Arial, Verdana;
+	width: 100%;
+	padding: 0.7em;
+	margin-bottom: .5em;
+}
+
+button#btn-comment {
+	font-family: "Trebuchet MS", Tahoma, Arial, Verdana;
+	padding: .4em;
+	background: #8c8c8c;
+	text-transform: uppercase;
+}
