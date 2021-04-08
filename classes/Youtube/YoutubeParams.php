@@ -17,23 +17,33 @@ final class YoutubeParams
      */
     private $channelId;
 
-    public function __construct($apiKey, $apiBaseUrl, $channelId)
+    /**
+     * @var array
+     */
+    private $clientSecret;
+
+    public function __construct($apiKey, $apiBaseUrl, $channelId, $clientSecret)
     {
         if (!$apiKey) {
-            throw new YoutubeHelperParamException($apiKey);
+            throw new YoutubeHelperParamException('apiKey');
         }
 
         if (!$apiBaseUrl) {
-            throw new YoutubeHelperParamException($apiBaseUrl);
+            throw new YoutubeHelperParamException('apiBaseUrl');
         }
 
         if (!$channelId) {
-            throw new YoutubeHelperParamException($channelId);
+            throw new YoutubeHelperParamException('channelId');
+        }
+
+        if (!$clientSecret) {
+            throw new YoutubeHelperParamException('clientSecret');
         }
 
         $this->apiKey = $apiKey;
         $this->apiBaseUrl = $apiBaseUrl;
         $this->channelId = $channelId;
+        $this->clientSecret = $clientSecret;
     }
 
     /**
@@ -58,5 +68,13 @@ final class YoutubeParams
     public function getChannelId()
     {
         return $this->channelId;
+    }
+
+    /**
+     * @return array
+     */
+    public function getClientSecret()
+    {
+        return $this->clientSecret;
     }
 }

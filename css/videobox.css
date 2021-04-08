@@ -1,9 +1,8 @@
-.videosContent
-{
-	float:left;
-	height:auto;
-	width:100%;
-	margin:0 auto;
+.videosContent {
+	float: left;
+	height: auto;
+	width: 700px;
+	margin: 0 auto;
 }
 
 .videosContent h1 {background:url(../images/t_videos.png) no-repeat top left; margin:0; padding:0; height:60px; text-indent:-9999px;}
@@ -97,4 +96,10 @@
 .video-comment .comment-avatar img {
 	border-radius: 24px;
 	margin-right: 1em;
+}
+
+.view-like-container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1em;
 }

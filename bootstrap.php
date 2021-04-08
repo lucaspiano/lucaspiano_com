@@ -19,10 +19,13 @@ require_once __DIR__ . "/classes/StaticDataHelper.php";
 $dbConnection = new MySQLConnection($config['db']);
 $staticData = new StaticDataHelper($config['staticData']);
 
+$clientSecret = json_decode(file_get_contents($config['youtube']['clientSecretFile']), true);
+
 $youtubeParams = new YoutubeParams(
     $config['youtube']['apiKey'],
     $config['youtube']['apiBaseUrl'],
-    $config['youtube']['channelId']
+    $config['youtube']['channelId'],
+    $clientSecret
 );
 
 $youtubeHelper = new YoutubeHelper($youtubeParams);

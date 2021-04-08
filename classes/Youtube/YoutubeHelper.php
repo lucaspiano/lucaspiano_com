@@ -93,6 +93,7 @@ class YoutubeHelper
             $result->id,
             $result->statistics->viewCount,
             $result->statistics->viewCount,
+            $videoId,
             $this->getVideoComments($result->id)
         );
 	}
