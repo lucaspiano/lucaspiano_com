@@ -32,6 +32,16 @@ class Comment
      */
     private $publishedAt;
 
+    /**
+     * @var bool
+     */
+    private $canRate = true;
+
+    /**
+     * @var Comment[]
+     */
+    private $replies = [];
+
     public function __construct($id, $comment, $author, $avatar, $likes, $publishedAt)
     {
         $this->id = $id;
@@ -88,5 +98,26 @@ class Comment
     public function getPublishedAt()
     {
         return $this->publishedAt;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCanRate()
+    {
+        return $this->canRate;
+    }
+
+    /**
+     * @return Comment[]
+     */
+    public function getReplies()
+    {
+        return $this->replies;
+    }
+
+    public function addReply(Comment $reply)
+    {
+        $this->replies[] = $reply;
     }
 }

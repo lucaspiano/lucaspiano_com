@@ -93,6 +93,8 @@ $videoCode = strstr($currentVideo->Url, "v=");
 $videoCode = str_replace("v=", "", $videoCode);
 $video = $youtubeHelper->getVideoDetails($videoCode);
 $comments = $video->getComments();
+
+// echo '<pre>'; print_r($comments); die;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -139,6 +141,8 @@ $comments = $video->getComments();
         <title>Lucas Piano - <?= $currentVideo->TituloVideo ?></title>
         <h6><?= $currentVideo->NomeCategoria ?></h6>
 
+        <div class="addthis_inline_share_toolbox_45mf"></div>
+
         <object width="700" height="400">
             <meta property="og:video" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?= $codigoVideo ?>" />
             <meta property="og:url" content="<?= $config['baseUrl'] ?>/videos/video.php?v=<?= $codigoVideo ?>" />
@@ -176,7 +180,10 @@ $comments = $video->getComments();
 
         <div class="comment-form" style="display: none">
             <textarea id="comment-text" placeholder="Escreva um comentário público..."></textarea>
-            <button type="button" id="btn-comment">Comentar</button>
+            <div class="comment-buttons">
+                <button type="button" id="btn-comment">Comentar</button>
+                <a href="https://www.youtube.com/channel/UCR2dv_znZ_o5GO8tUMGZZUg?sub_confirmation=1" target="_blank" id="subscribe-link">Inscrever-se</a>
+            </div>
         </div>
 
         <h4><?= TranslateItem("Coment&aacute;rios", "Comments", "Coment&aacute;rios") ?></h4>
@@ -192,10 +199,21 @@ $comments = $video->getComments();
                     <div class="video-comment">
                         <div class="comment-avatar">
                             <img src="<?= $comment->getAvatar() ?>" alt="<?= $comment->getAuthor() ?>">
-                            <h3><?= $comment->getAuthor() ?></h3>
+                            <h3><?= $comment->getAuthor() ?> (<?= $comment->getLikes() ?> likes)</h3>
                         </div>
                         <p><?= $comment->getComment() ?></p>
                     </div>
+                    <?php if (!empty($comment->getReplies())): ?>
+                        <?php foreach ($comment->getReplies() as $reply): ?>
+                            <div class="video-comment replies">
+                                <div class="comment-avatar">
+                                    <img src="<?= $reply->getAvatar() ?>" alt="<?= $reply->getAuthor() ?>">
+                                    <h3><?= $reply->getAuthor() ?> (<?= $reply->getLikes() ?> likes)</h3>
+                                </div>
+                                <p><?= $reply->getComment() ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             <?php else : ?>
                 <p>Seja o primeiro a comentar no vídeo.</p>
@@ -209,7 +227,7 @@ $comments = $video->getComments();
     </div>
 </div>
 
-<!--Google analytics-->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-606f7b975dc74136"></script>
 <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

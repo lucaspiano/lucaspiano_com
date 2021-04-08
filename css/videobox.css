@@ -86,6 +86,10 @@
 	margin-bottom: 2em;
 }
 
+.video-comment.replies {
+	margin-left: 5em;
+}
+
 .video-comment .comment-avatar {
 	display: flex;
 	flex-direction: row;
@@ -113,6 +117,7 @@ textarea#comment-text {
 	width: 100%;
 	padding: 0.7em;
 	margin-bottom: .5em;
+	box-sizing: border-box;
 }
 
 button#btn-comment {
@@ -120,4 +125,22 @@ button#btn-comment {
 	padding: .4em;
 	background: #8c8c8c;
 	text-transform: uppercase;
+}
+
+div.comment-buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+a#subscribe-link {
+	padding: .4em 1.2em;
+	background: #CC0000;
+	text-transform: uppercase;
+	color: white;
+	line-height: 1.8em;
+}
+
+a#subscribe-link:hover {
+	text-decoration: none;
+	background: #7F0000;
 }

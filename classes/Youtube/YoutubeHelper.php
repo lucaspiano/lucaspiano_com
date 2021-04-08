@@ -114,7 +114,7 @@ class YoutubeHelper
         }
 
         foreach ($comments as $comment) {
-            $collection[] = new Comment(
+            $commentEntity = new Comment(
                 $comment->id,
                 $comment->snippet->topLevelComment->snippet->textDisplay,
                 $comment->snippet->topLevelComment->snippet->authorDisplayName,
@@ -122,8 +122,22 @@ class YoutubeHelper
                 $comment->snippet->topLevelComment->snippet->likeCount,
                 $comment->snippet->topLevelComment->snippet->publishedAt
             );
-        }
 
+            if (property_exists($comment, 'replies')) {
+                foreach ($comment->replies->comments as $reply) {
+                    $commentEntity->addReply(new Comment(
+                        $reply->id,
+                        $reply->snippet->textDisplay,
+                        $reply->snippet->authorDisplayName,
+                        $reply->snippet->authorProfileImageUrl,
+                        $reply->snippet->likeCount,
+                        $reply->snippet->publishedAt
+                    ));
+                }
+            }
+
+            $collection[] = $commentEntity;
+        }
 
         return $collection;
 	}
