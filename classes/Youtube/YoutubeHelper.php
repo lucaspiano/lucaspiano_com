@@ -48,6 +48,7 @@ class YoutubeHelper
                 $val->id,
                 $val->snippet->title,
                 $val->contentDetails->itemCount,
+                '',
                 $val->snippet->thumbnails->high->url
             );
 		}

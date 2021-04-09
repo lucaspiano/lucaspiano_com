@@ -255,10 +255,10 @@ $comments = $video->getComments();
                     <h6>Playlist</h6>
 
                     <ul class="playlist-video-list">
-                        <?php foreach ($videoList as $video): ?>
+                        <?php foreach ($videoList as $row): ?>
                             <li>
-                                <a href="<?= $config['baseUrl'] ?>/videos/videobox.php?p=<?= $playlist->getId() ?>&v=<?= $video->CodigoVideo ?>">
-                                    <?= $video->TituloVideo ?>
+                                <a href="<?= $config['baseUrl'] ?>/videos/videobox.php?p=<?= $playlist->getId() ?>&v=<?= $row->CodigoVideo ?>">
+                                    <?= $row->TituloVideo ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>

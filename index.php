@@ -212,12 +212,12 @@ $latestVideos = $dbConnection->execute($sql)->fetchAll();
                                                 <img src="https://img.youtube.com/vi/<?=$videoCode?>/hqdefault.jpg">
                                             </a>
                                             <a class="venobox" data-type="iframe" href="<?= $config['baseUrl'] ?>/videos/videobox.php?v=<?=$row->CodigoVideo?>">
-                                                <?=$row->TituloVideo?>
+                                                <?= $row->TituloVideo?>
                                             </a><br>
-                                            <span><?=$video->ViewCount?> views</span>
+                                            <span><?= $video->ViewCount?> views</span>
                                             <span>
                                                 <a href="<?= $config['baseUrl'] ?>/videos/?category=<?=$row->CodigoCategoria?>">
-                                                    <?=$row->NomeCategoria?>
+                                                    <?= $row->NomeCategoria?>
                                                 </a>
                                             </span>
                                         </div>
