@@ -144,3 +144,25 @@ a#subscribe-link:hover {
 	text-decoration: none;
 	background: #7F0000;
 }
+
+.container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container .player {
+	margin-right: 1em;
+}
+
+.container .playlist {
+	min-width: 250px;
+	text-align: right;
+}
+
+ul.playlist-video-list {
+	list-style-type: none;
+}
+
+ul.playlist-video-list li {
+	margin-bottom: 1.5em;
+}

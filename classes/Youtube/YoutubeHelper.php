@@ -70,8 +70,31 @@ class YoutubeHelper
             $result->id,
             $result->snippet->title,
             $result->contentDetails->itemCount,
+            $this->getPlaylistVideoCodes($playListId),
             $result->snippet->thumbnails->high->url
         );
+	}
+
+    public function getPlaylistVideoCodes($playlistId)
+    {
+        $playlistsVideos = $this->getJson('playlistItems', [
+            'part' => 'snippet',
+            'maxResults' => 50,
+            'playlistId' => $playlistId,
+            'key' => $this->params->getApiKey(),
+        ]);
+
+        if (!$playlistsVideos || !property_exists($playlistsVideos, 'items')) {
+            return [];
+        }
+
+        $videoCodes = [];
+
+        foreach ($playlistsVideos->items as $playlistItem) {
+            $videoCodes[] = $playlistItem->snippet->resourceId->videoId;
+        }
+
+        return $videoCodes;
 	}
 
     /**

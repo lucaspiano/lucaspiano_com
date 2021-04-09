@@ -2,17 +2,38 @@
 
 class PlayList
 {
+    /**
+     * @var string
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $title;
+
+    /**
+     * @var int
+     */
     private $total;
+
+    /**
+     * @var string
+     */
     private $thumbnail;
 
-    public function __construct($id, $title, $total, $thumbnail)
+    /**
+     * @var array
+     */
+    private $videosCode;
+
+    public function __construct($id, $title, $total, $videosCode, $thumbnail)
     {
         $this->id = $id;
         $this->title = $title;
         $this->total = $total;
         $this->thumbnail = $thumbnail;
+        $this->videosCode = $videosCode;
     }
 
     /**
@@ -45,5 +66,13 @@ class PlayList
     public function getThumbnail()
     {
         return $this->thumbnail;
+    }
+
+    /**
+     * @return array
+     */
+    public function getVideosCode()
+    {
+        return $this->videosCode;
     }
 }

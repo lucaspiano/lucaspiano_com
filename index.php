@@ -1,13 +1,43 @@
 <?php
 /** @var StaticDataHelper $staticData */
 /** @var YoutubeHelper $youtubeHelper */
+/** @var MySQLConnection $dbConnection */
 /** @var array $config */
 
 require_once __DIR__ . "/bootstrap.php";
 
 $meta = $staticData->get('meta');
 
+$sess_lang = $_REQUEST['lang'];
+
+if (isset($sess_lang)) {
+    $_SESSION['LUCASPIANO_LANG'] = $sess_lang;
+}
+
+if (isset($_SESSION['LUCASPIANO_LANG'])) {
+    $GLOBALS['LANG'] = $_SESSION['LUCASPIANO_LANG'];
+} else {
+    $GLOBALS['LANG'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+}
+
 $playlists = $youtubeHelper->getPlaylists(4);
+
+$sql = "
+    SELECT
+        v.Codigo as CodigoVideo,								  
+        v.Views,
+        v.Url_{$GLOBALS['LANG']} as Url,
+        v.Titulo_{$GLOBALS['LANG']} as TituloVideo,
+        c.Nome_{$GLOBALS['LANG']} as NomeCategoria,
+        c.Codigo as CodigoCategoria
+    FROM Video v
+    INNER JOIN Categoria c ON c.Codigo = v.CodigoCategoria
+    WHERE (v.Url_{$GLOBALS['LANG']} IS NOT NULL AND v.Url_{$GLOBALS['LANG']} <> '')
+    ORDER BY Data DESC								
+    LIMIT 9
+";
+
+$latestVideos = $dbConnection->execute($sql)->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -169,57 +199,38 @@ $playlists = $youtubeHelper->getPlaylists(4);
 
                             <div id="ultimos-videos">
                                 <h1><?= TranslateItem("ultimos Vídeos", "Latest Videos","últimos vidéos") ?></h1>
-                                <?php
-                                    $query = "
-                                        SELECT
-                                          v.Codigo as CodigoVideo,								  
-                                          v.Views,
-                                          v.Url_".$GLOBALS['LANG']." as Url,
-                                          v.Titulo_".$GLOBALS['LANG']." as TituloVideo,
-                                          c.Nome_".$GLOBALS['LANG']." as NomeCategoria,
-                                          c.Codigo as CodigoCategoria
-                                        FROM
-                                          Video v
-                                          INNER JOIN Categoria c
-                                            ON c.Codigo = v.CodigoCategoria
-                                        WHERE (v.Url_".$GLOBALS['LANG']." IS NOT NULL AND v.Url_".$GLOBALS['LANG']." <> '')
-                                        ORDER BY
-                                        Data DESC								
-                                        LIMIT 9
-                                    ";
-
-                                    $result = mysql_query($query);
-                                    $rows = mysql_num_rows($result);
-
-                                    if ($rows == 0) {
-                                        echo "<div align='center'><h3>";
-                                        TranslateItem("Nenhum v�deo cadastrado no momento.", "No video available right now", "No hay videos disponibles en este momento");
-                                        echo "</h3></div>";
-                                    }
-                                else
-                                {
-                                    while ($row = mysql_fetch_object($result))
-                                    {
+                                <?php if (!empty($latestVideos)): ?>
+                                    <?php foreach ($latestVideos as $row): ?>
+                                        <?php
                                         $videoCode = strstr($row->Url, "v=");
                                         $videoCode = str_replace("v=", "", $videoCode);
-
                                         $video = $youtubeHelper->GetVideoDetails($videoCode);
-
                                         ?>
 
                                         <div class="videoItem">
-
-                                            <a class="venobox" data-type="iframe" href="<?= $config['baseUrl'] ?>/videos/videobox.php?v=<?=$row->CodigoVideo?>&vq=hd1080"><img src="https://img.youtube.com/vi/<?=$videoCode?>/hqdefault.jpg"></a>
-                                            <a class="venobox" data-type="iframe" href="<?= $config['baseUrl'] ?>/videos/videobox.php?v=<?=$row->CodigoVideo?>"><?=$row->TituloVideo?></a><br>
+                                            <a class="venobox" data-type="iframe" href="<?= $config['baseUrl'] ?>/videos/videobox.php?v=<?=$row->CodigoVideo?>&vq=hd1080">
+                                                <img src="https://img.youtube.com/vi/<?=$videoCode?>/hqdefault.jpg">
+                                            </a>
+                                            <a class="venobox" data-type="iframe" href="<?= $config['baseUrl'] ?>/videos/videobox.php?v=<?=$row->CodigoVideo?>">
+                                                <?=$row->TituloVideo?>
+                                            </a><br>
                                             <span><?=$video->ViewCount?> views</span>
-                                            <span><a href="<?= $config['baseUrl'] ?>/videos/?category=<?=$row->CodigoCategoria?>"><?=$row->NomeCategoria?></a></span>
+                                            <span>
+                                                <a href="<?= $config['baseUrl'] ?>/videos/?category=<?=$row->CodigoCategoria?>">
+                                                    <?=$row->NomeCategoria?>
+                                                </a>
+                                            </span>
                                         </div>
-
-                                        <?
-                                    }
-                                    mysql_free_result($result);
-                                }
-                                ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div align='center'>
+                                        <h3><?= TranslateItem(
+                                                "Nenhum vídeo cadastrado no momento.",
+                                                "No video available right now",
+                                                "No hay videos disponibles en este momento"
+                                            ) ?></h3>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
